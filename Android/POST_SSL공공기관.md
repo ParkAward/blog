@@ -10,9 +10,10 @@
 `HttpURLConnection`을 통해 로그인을 시도 해봤다.
 
 `OutputStream`속에 데이터가 `Null`이기에 왜 그러지가 시작이였다.
-
+``` java
+// ERROR
+javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.
+```
 이 문제를 알아 보기 위해선 `https`와 **SSL** 을 알아야했다.
 
 ![image](https://user-images.githubusercontent.com/101157141/157393354-ddf02fe9-0a01-48f1-a953-e9a5b1d35541.png)
-
-https 는 ssl 프로토콜 위에서 돌아간다고 한다.
