@@ -17,3 +17,9 @@ javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorExcepti
 이 문제를 알아 보기 위해선 `https`와 **SSL** 을 알아야했다.
 
 ![image](https://user-images.githubusercontent.com/101157141/157393354-ddf02fe9-0a01-48f1-a953-e9a5b1d35541.png)
+
+결론적으로 `HttpURLConnection` 와 `WebView`의 POST를 이용해봐도 불가능했다.<br>
+공공기관의 SSL을 받아와 POST데이터를 보내야하는데 `OPENSSL`을 이용하는 방법 을 제외한 <br>
+다른 방법들은 실패했다. 
+
+다시 도전해보자!
