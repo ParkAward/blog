@@ -20,4 +20,4 @@
 `:nth-of-type(A)` A번째 요소를 선택 
 > `odd` 홀수 선택 <br> `even` 짝수 선택 <br> `An + B` 방정식 적용 가능
 
-`only-of-
+`only-of-on
