@@ -10,9 +10,9 @@
 
 2. 가볍고 빠르다
 
-   |           SVN           | GIT  |
-   | :---------------------: | :--: |
-   | 중앙시스템 코드 공유, 항상 네트워크 필요 |  로컬  |
+   |                   SVN                    | GIT  |
+   | :--------------------------------------: | :--: |
+   | 중앙시스템 코드 공유, 항상 네트워크 필요 | 로컬 |
 
 3. 분산 작업
 
@@ -98,7 +98,8 @@ Date: Tue Dec 11 22:22:22 2022 +0900
     <p>Author</p>
     <p>Commit</p>
     <p><strong>Innital commit</strong></p>
-</detales>
+</center>
+
 
 ##### Git 관리 상태
 
@@ -213,13 +214,57 @@ checkout은 branch를 전환 하기도 하고 Snapshot을 이동할 수 있습�
 
      `git remote add origin https://githyb.com/gorup/project`
 
-   origin은 주소를 가리킵니다. 단축 효ㅕ과
+   origin은 주소를 간략하게 가리킵니다. 
 
-### Git 파고들기
+### HEAD를 이용한 버젼 관리
+
+`git reset --<option> HAED~`을 이용하여 HEAD를 전의 `snapshot`으로 이동시킬 수 있습니다.
+
+> `--soft(default)`을 이용하여 예전 버전으로 돌아가 commit을 수정할 수 있습니다.
+
+> `git reset --hard`을 이용하면 working directory에 존재하는 파일도 사라집니다. <head>가 사라집니다.
+
+### Rebase
+
+`git rebase master`
+
+위 명령어를 요약하자면 <span style="color:red;">현재 위치해 있는 브랜치의 commit부터</span>
+
+**matster의 공통된 부모 전까지의 commit을** master 옆에 이어 붙인다는 의미입니다.
+
+### Pull/Push/set_upstream(트래킹)
+
+1. **remote 저장소의 이름 지정** `git remote add **orgin** https://github.com/group/project`
+
+2. **트래킹 브랜치를 설정해서 push 또는 pull을 합니다.**
+
+   1. `git pull origin master`
+   2. `git push --set-upstream origin master`
+   3. `git push origin master`
+
+3. **--set-upstream** 이게 뭘까
+
+   > 앞에서 다룬 메시지는 원격저장소에 위치한 브랜치를 추적하기 위한 <br> 로컬 저장소의 브랜치가 정해지지 않았다는 의미입니다.
+
+   `git branch -set-upstream-to=second/cat cat`
+
+   다른 원격 저장소로부터 소스코드를 가져오는 방법입니다.
+
+   트래킹 브랜치는 저장소에 존재하는 특정 브랜치의 위치를 알려줍니다.
+
+   트래킹 브랜치를 정보를 이용해서 내가 원하는  브랜치와 서로 트래킹을<br>시켜주고 지속적으로 관리할 수 있습니다.
+
+### Pull 오류해결
+
+#### 1. `git clean -f -d -x`
+
+​	git 추적중이지 않은 워킹 디렉토리에 존재하는 파일들과 <br> gitignore로 git의 관리 받지 않는 파일들까지 모두 깨끗하게 지워버리는 명령어입니다.<br> 따라서 수정중이던 내용 중 필요한 부분이 있다면<br>
+
+<center> <strong>커밋으로 수정된 상태를 저장하거나 <br>아예 수정하고 있는 파일을 다른 디텍토리에 옮겨 저장하는 것이 <br>pull 오류를 해결하는 가장 확실한 방법입니다.</strong>
+
+#### 2. `git stash`
 
 
-
-
-
-하이 <detales>하이 </detales>
+1. git stash를 사용하여 작업한 내용을 커밋하지 않고 임시저장 한다.
+2. 충돌되는 파일을 삭제 또는 다른 임시 디렉토리로 이동시킨다.
 
